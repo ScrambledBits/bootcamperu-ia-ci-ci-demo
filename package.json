@@ -8,6 +8,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "test": "echo 'tests pending'",
     "astro": "astro"
   },
   "dependencies": {
