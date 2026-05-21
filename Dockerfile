@@ -6,7 +6,7 @@ RUN pnpm install --frozen-lockfile
 COPY --chown=node:node . .
 RUN pnpm run build
 
-FROM --platform=$BUILDPLATFORM golang:1.23-alpine AS server
+FROM --platform=$BUILDPLATFORM golang:1.26-alpine AS server
 ARG TARGETOS
 ARG TARGETARCH
 WORKDIR /src

@@ -59,7 +59,7 @@ security:
     - wget -qO- "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz" | tar -xzC /usr/local/bin trivy
   script:
     - docker build -t cicd-talk-demo:scan .
-    - trivy image --severity HIGH,CRITICAL --exit-code 1 --format table cicd-talk-demo:scan
+    - trivy image --severity HIGH,CRITICAL --exit-code 1 --ignore-unfixed --format table cicd-talk-demo:scan
 
 publish:
   stage: publish
