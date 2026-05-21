@@ -1,7 +1,45 @@
 ---
-const { name = 'mundo' } = Astro.props;
+interface Props {
+  name?: string;
+}
+const { name = "mundo" } = Astro.props;
 ---
-<section class="hello">
-  <h1>Hola, {name}.</h1>
-  <p>Esta app se construyó en una conferencia de Bootcamperu.</p>
+
+<section class="hero">
+  <span class="hero-eyebrow">DEMO EN VIVO</span>
+  <h1>
+    Hola, <span class="hero-name">{name}</span>.
+  </h1>
+  <p class="hero-lead">
+    Esta app Astro se construyó en una conferencia de Bootcamperu como punto de
+    partida para generar CI/CD asistido por IA. <code>Dockerfile</code>,
+    <code>.github/workflows/</code> y <code>.gitlab-ci.yml</code> los escribió
+    Claude en vivo durante la sesión.
+  </p>
 </section>
+
+<style>
+  .hero {
+    padding-block: 1rem 2rem;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--c-t2);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    margin-bottom: 1.25rem;
+  }
+  .hero-name {
+    color: var(--c-t1);
+  }
+  .hero-lead {
+    font-size: 1.125rem;
+    max-width: 60ch;
+    color: var(--c-text-soft);
+  }
+</style>

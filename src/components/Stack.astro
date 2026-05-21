@@ -1,0 +1,68 @@
+---
+const items = [
+  { label: "Framework", value: "Astro 5", accent: "teal" },
+  { label: "Runtime",   value: "Node 22", accent: "orange" },
+  { label: "Container", value: "Docker multi-stage", accent: "teal" },
+  { label: "CI/CD",     value: "GitHub Actions + GitLab CI", accent: "orange" },
+];
+---
+
+<section class="stack">
+  <h2>Lo que pasa cuando empujas un commit</h2>
+  <p class="stack-lead">
+    Un solo <code>git push</code> dispara dos pipelines en paralelo.
+    Mismo intent, sintaxis distinta.
+  </p>
+
+  <ul class="stack-grid">
+    {items.map(({ label, value, accent }) => (
+      <li class:list={["stack-card", `accent-${accent}`]}>
+        <span class="stack-label">{label}</span>
+        <span class="stack-value">{value}</span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .stack {
+    padding-block: 2rem;
+  }
+  .stack-lead {
+    max-width: 60ch;
+    margin-bottom: 2rem;
+  }
+  .stack-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .stack-card {
+    background: var(--c-surface);
+    border-left: 4px solid var(--c-divider);
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .accent-teal   { border-left-color: var(--c-t1); }
+  .accent-orange { border-left-color: var(--c-t2); }
+  .stack-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--c-muted);
+  }
+  .accent-teal   .stack-label { color: var(--c-t1); }
+  .accent-orange .stack-label { color: var(--c-t2); }
+  .stack-value {
+    font-family: var(--font-title);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--c-text);
+  }
+</style>

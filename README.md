@@ -5,7 +5,9 @@ App Astro mínima usada como punto de partida del demo en vivo de la charla
 
 ## Qué hay aquí
 
-Una app Astro vacía de CI/CD. Durante el demo, Claude generará en vivo:
+Una app Astro vacía de CI/CD, con el branding visual del taller (paleta teal +
+orange, tipografías serif para títulos y sans para cuerpo). Durante el demo,
+Claude generará en vivo:
 
 - `Dockerfile` multi-stage
 - `.github/workflows/ci.yml`
@@ -25,8 +27,10 @@ Esos tres archivos NO existen en este repo a propósito.
 ├── .dockerignore
 ├── public/
 └── src/
-    ├── layouts/Base.astro
-    ├── components/Hello.astro
+    ├── layouts/Base.astro       # chrome (barras teal/orange), header, footer, estilos globales
+    ├── components/
+    │   ├── Hello.astro          # hero
+    │   └── Stack.astro          # tarjetas con el stack del demo
     └── pages/index.astro
 ```
 

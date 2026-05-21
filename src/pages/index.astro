@@ -1,7 +1,31 @@
 ---
-import Base from '../layouts/Base.astro';
-import Hello from '../components/Hello.astro';
+import Base from "../layouts/Base.astro";
+import Hello from "../components/Hello.astro";
+import Stack from "../components/Stack.astro";
 ---
-<Base title="cicd-talk-demo">
+
+<Base title="cicd-talk-demo · Bootcamperu">
   <Hello name="Bootcamperu" />
+  <Stack />
+
+  <section class="cta">
+    <p>
+      Repo público en
+      <a href="https://github.com/ScrambledBits/cicd-talk-demo" rel="noopener">
+        github.com/ScrambledBits/cicd-talk-demo
+      </a>.
+    </p>
+  </section>
+
+  <style>
+    .cta {
+      padding-block: 2rem 0;
+      border-top: 1px solid var(--c-divider);
+      margin-top: 2rem;
+      color: var(--c-muted);
+    }
+    .cta p {
+      margin: 0;
+    }
+  </style>
 </Base>
