@@ -12,8 +12,8 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.2
-      - uses: actions/setup-node@v6.0.0
+      - uses: actions/checkout@v6.0.3
+      - uses: actions/setup-node@v6.4.0
         with:
           node-version: '22'
       - run: corepack enable && corepack prepare pnpm@9.15.0 --activate
@@ -30,8 +30,8 @@ jobs:
     needs: lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.2
-      - uses: actions/setup-node@v6.0.0
+      - uses: actions/checkout@v6.0.3
+      - uses: actions/setup-node@v6.4.0
         with:
           node-version: '22'
       - run: corepack enable && corepack prepare pnpm@9.15.0 --activate
@@ -52,7 +52,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.2
+      - uses: actions/checkout@v6.0.3
       - name: Build image for scanning
         run: docker build -t cicd-talk-demo:scan .
       - name: Trivy vulnerability scan
@@ -67,8 +67,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.2
-      - uses: actions/setup-node@v6.0.0
+      - uses: actions/checkout@v6.0.3
+      - uses: actions/setup-node@v6.4.0
         with:
           node-version: '22'
       - run: corepack enable && corepack prepare pnpm@9.15.0 --activate
@@ -89,7 +89,7 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v6.0.2
+      - uses: actions/checkout@v6.0.3
       - name: Resolve short SHA
         id: sha
         run: echo "short=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
